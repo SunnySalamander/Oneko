@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Oneko_WebApp</RootNamespace>
+    <UserSecretsId>f77ddeb4-33d7-4de6-92f1-f5f1e57b6d2e</UserSecretsId>
+  </PropertyGroup>
+
+</Project>

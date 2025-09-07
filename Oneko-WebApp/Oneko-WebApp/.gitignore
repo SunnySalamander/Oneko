@@ -1,0 +1,19 @@
+# Visual Studio
+.vs/
+
+# ASP.NET Core
+/bin/
+/obj/
+/wwwroot/lib/
+/node_modules/
+
+# User-specific settings
+*.user
+*.suo
+
+# NuGet packages
+*.nupkg
+packages/
+
+# Project-specific files
+appsettings.Development.json

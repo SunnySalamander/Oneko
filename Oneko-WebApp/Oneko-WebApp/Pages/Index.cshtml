@@ -1,0 +1,28 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+}
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+}
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<form method="post">
+    <div>
+        <label asp-for="Input.FirstName">First name</label>
+        <input asp-for="Input.FirstName" type="text" id="firstn"><br><br />
+        <label asp-for="Input.LastName">Last name</label>
+        <input asp-for="Input.LastName" type="text" id="lastn"><br><br />
+        <label asp-for="Input.Help">What do you need help with?</label>
+        <input asp-for="Input.Help" type="text" id="help"><br><br />
+        <button type="submit">Submit</button>
+    </div>
+</form>
