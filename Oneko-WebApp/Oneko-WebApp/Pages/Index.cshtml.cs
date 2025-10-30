@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
+using Oneko_WebApp.Models;
 
 
 namespace Oneko_WebApp.Pages
@@ -26,24 +27,11 @@ namespace Oneko_WebApp.Pages
             _configuration = configuration;
         }
 
-        //TicketForm Class
-        public class TicketForm
-        {
-            [Required(ErrorMessage = "First name is required.")]
-            public string FirstName { get; set; } = string.Empty;
-
-            [Required(ErrorMessage = "Last name is required")]
-            public string LastName { get; set; } = string.Empty;
-
-            [Required(ErrorMessage = "This is a required field")]
-            public string Help { get; set; } = string.Empty;
-        }
-
         [BindProperty]
-        public TicketForm Input { get; set; } = new TicketForm();
+        public TicketForm Input { get; set; } = default!;
         public void OnGet()
         {
-            //not getting anything
+            Input = new TicketForm("", "", "");
         }
 
         public async Task<IActionResult> OnPostAsync()
@@ -97,7 +85,7 @@ namespace Oneko_WebApp.Pages
 
             // Reset the form model and redirect to the same page
             ModelState.Clear();
-            Input = new TicketForm();
+            Input = new TicketForm("", "", "");
 
 
             return RedirectToPage("./Index");

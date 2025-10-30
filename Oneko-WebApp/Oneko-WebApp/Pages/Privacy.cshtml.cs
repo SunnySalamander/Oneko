@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
+
 namespace Oneko_WebApp.Pages
 {
     public class PrivacyModel : PageModel
@@ -15,6 +16,8 @@ namespace Oneko_WebApp.Pages
         public void OnGet()
         {
         }
+
+        
     }
 
 }
