@@ -12,11 +12,11 @@
     <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
 }
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+    <h1 class="display-4">Need IT help? Submit your request here:</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
-<form method="post">
-    <div>
+<form method="post" class="form">
+    @* <div>
         <label asp-for="Input.FirstName">First name</label>
         <input asp-for="Input.FirstName" type="text" id="firstn"><br><br />
         <label asp-for="Input.LastName">Last name</label>
@@ -24,5 +24,20 @@
         <label asp-for="Input.Help">What do you need help with?</label>
         <input asp-for="Input.Help" type="text" id="help"><br><br />
         <button type="submit">Submit</button>
-    </div>
+    </div> *@
+    <fluent-text-field asp-for="Input.FirstName">
+        First name
+        <span slot="validation-message" asp-validation-for="Input.FirstName"></span>
+    </fluent-text-field>
+    <fluent-text-field asp-for="Input.LastName">
+        Last name
+        <span slot="validation-message" asp-validation-for="Input.LastName"></span>
+    </fluent-text-field>
+    <fluent-text-field asp-for="Input.Help">
+        What do you need help with?
+        <span slot="validation-message" asp-validation-for="Input.Help"></span>
+    </fluent-text-field>
+    <fluent-button type="submit" appearance="accent">
+        Submit
+    </fluent-button>
 </form>

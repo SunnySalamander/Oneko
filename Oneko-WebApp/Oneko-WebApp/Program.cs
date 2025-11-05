@@ -19,6 +19,9 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+//Adding this so that I can use my site.css file
+app.UseStaticFiles();
+
 app.UseHttpsRedirection();
 
 app.UseRouting();

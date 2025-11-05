@@ -1,31 +1,72 @@
 html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
+    height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    /* Sets a clean, modern font for the whole page */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    height: 100%;
+    margin: 0;
 }
 
-.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
-  color: var(--bs-secondary-color);
-  text-align: end;
+/* Apply the theme's colors to the provider itself, not the body. Make it a block and give it 100% height to fill the page. */
+fluent-provider {
+    color: var(--neutral-foreground-rest);
+    background: var(--neutral-layer-1-background);
+    display: block;
+    height: 100%;
 }
 
-.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
-  text-align: start;
+.container {
+    max-width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.header {
+    padding: 12px 0px;
+    border-bottom: 1px solid var(--neutral-stroke-divider-rest);
+}
+
+.anchor {
+    font-size: var(--type-ramp-plus-1-font-size);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* Styles for the form on Index.cshtml */
+.form {
+    display: grid;
+    gap: 20px;
+    max-width: 400px;
+}
+
+/* Styles for the success/error TempData messages */
+/*.alert-success,
+.alert-error {
+    margin-bottom: 20px;
+    padding: 12px;
+    border-radius: 4px;
+}*/
+
+.alert-success {
+    /* works in dark mode */
+    background: #0c4f0c;
+}
+
+.alert-error {
+    /* works in dark mode */
+    background: #5a1d1d;
+}
+
+h1 {
+    font-size: var(--type-ramp-plus-4-font-size); /* Fluent's token for a large title */
+    font-weight: 700;
+    color: var(--neutral-foreground-rest); /* The default text color for the theme */
+    margin-bottom: 24px;
 }

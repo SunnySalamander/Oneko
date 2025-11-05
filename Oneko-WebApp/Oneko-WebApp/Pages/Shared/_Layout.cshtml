@@ -5,48 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Oneko_WebApp</title>
     <script type="importmap"></script>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> *@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Oneko_WebApp.styles.css" asp-append-version="true" />
+    @* I am not using the auto-generated styles :( sorry. My site.css was not winning the specificity war and
+        this app is too small to require both.
+    *@
+    @* <link rel="stylesheet" href="~/Oneko_WebApp.styles.css" asp-append-version="true" /> *@
+    @* Add the Fluent 2 Content Delivery Network (CDN) *@
+    <script type="module" src="https://unpkg.com/@@fluentui/web-components"></script>
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    @* apply the Fuent theme *@
+    <fluent-provider theme="dark">
+        <header class="header">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">Oneko_WebApp</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
+                <fluent-anchor asp-page="/Index" class="anchor">
+                    Oneko_WebApp
+                </fluent-anchor>
+                <fluent-anchor asp-page="/Index" appearance="neutral">Home</fluent-anchor>
+                <fluent-anchor asp-page="/Privacy" appearance="neutral">Privacy</fluent-anchor>
+
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
-    <footer class="border-top footer text-muted">
+        </header>
+        @* <header>
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                <div class="container">
+                    <a class="navbar-brand" asp-area="" asp-page="/Index">Oneko_WebApp</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header> *@
         <div class="container">
-            &copy; 2025 - Oneko_WebApp - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
         </div>
-    </footer>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+        <footer class="border-top footer text-muted">
+            <div class="container">
+                &copy; 2025 - Oneko_WebApp - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            </div>
+        </footer>
+        @* Using Fluent UI, so these are no longer required *@
+        @* <script src="~/lib/jquery/dist/jquery.min.js"></script> *@
+        @* <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script> *@
+        <script src="~/js/site.js" asp-append-version="true"></script>
 
-    @await RenderSectionAsync("Scripts", required: false)
+        @await RenderSectionAsync("Scripts", required: false)
+    </fluent-provider>
 </body>
 </html>
